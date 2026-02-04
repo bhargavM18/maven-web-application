@@ -89,13 +89,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://172.31.42.154:9980/mithuntechnologies/repository/canarabank-snapshot/</url>
+	      <url>http://3.110.141.151:4413/repository/wallmart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://172.31.42.154:9980/mithuntechnologies/repository/canarabank-release/</url>
+	      <url>http://3.110.141.151:4413/repository/wallmart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
