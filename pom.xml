@@ -26,8 +26,6 @@
 		<sonar.login>admin</sonar.login>
 		<sonar.password>bhargav</sonar.password> 
 		
-		
-		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -41,7 +39,6 @@
 			<version>20160212</version>
 		</dependency>
 		
-		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -62,8 +59,6 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- compile dependencies -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -109,7 +104,7 @@
 		
 		<plugins>
 			<plugin>
-                groupId>org.apache.maven.plugins</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
             </plugin>
@@ -123,11 +118,12 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
-  <plugin>
-    <groupId>org.sonarsource.scanner.maven</groupId>
-    <artifactId>sonar-maven-plugin</artifactId>
-    <version>4.0.0.4121</version>
- </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>4.0.0.4121</version>
+            </plugin>
 			
 
 			<plugin>
@@ -154,8 +150,7 @@
 				</configuration>
 			</plugin>
 			
-</plugins>
+        </plugins>
 	</build>
-	
 	
 </project>
