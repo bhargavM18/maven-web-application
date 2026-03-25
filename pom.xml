@@ -3,11 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.mt</groupId>
-	<artifactId>amazon-web-app</artifactId>
+	<artifactId>Facebook-Project-Development</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	
-	<name>amazon-web-app</name>
 
 	<description>Maven Web Project for Java Project</description>
 
@@ -104,7 +103,6 @@
 	</distributionManagement>
 	
 	<build>
-	
 		
 		<plugins>
 			<plugin>
@@ -137,7 +135,7 @@
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webApp>
-						<contextPath>/amazon-web-app</contextPath>
+						<contextPath>/maven-web-application</contextPath>
 					</webApp>
 				</configuration>
 			</plugin>
@@ -150,7 +148,7 @@
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
 					<wtpversion>2.0</wtpversion>
-					<wtpContextName>amazon-web-app</wtpContextName>
+					<wtpContextName>maven-web-application</wtpContextName>
 				</configuration>
 			</plugin>
 			
