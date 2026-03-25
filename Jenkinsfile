@@ -131,7 +131,7 @@ node {
     stage('SonarQ Test') {
         // Ikkada key mariyu name rendu marustunnam
         // Name lo space lu rakunda check chesko mama
-        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.projectKey=fb-${env.BRANCH_NAME} -Dsonar.projectName=Facebook-${env.BRANCH_NAME}"
+        sh "${mavenHome}/bin/mvn sonar:sonar"
     }
 
     stage('Deploy War Into Container'){
