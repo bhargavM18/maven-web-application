@@ -101,7 +101,7 @@ node {
     }
      stage('SonarQ Test') {
         // Added the '$' before the curly braces
-        sh "${mavenHome}/bin/mvn clean package sonar:sonar"
+        sh "${mavenHome}/bin/mvn clean package sonar:sonar -Dsonar.projectKey=facebook-${env.BRANCH_NAME}"
     }
     stage('Deploy War Into Container'){
      sshagent(['a1e3132a-48ca-4722-bb22-ad3f22e2f7cc']) {
