@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.mt</groupId>
-	<artifactId>facebook-maven-app</artifactId>
+	<artifactId>amazon-web</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	
-	<name>facebook-maven-app</name>
+	<name>amazon-web</name>
 
 	<properties>
 		<jdk.version>1.8</jdk.version>
@@ -45,7 +45,7 @@
 	</dependencies>
 		
 	<build>
-		<finalName>facebook-maven-app</finalName>
+		
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
