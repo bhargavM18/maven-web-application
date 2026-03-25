@@ -114,7 +114,6 @@
 
 
 node {
-    // Defines the path to the Maven installation
     def mavenHome = tool name: 'maven-3.8.2'
     
     stage('Checkout Stage') {
@@ -127,14 +126,13 @@ node {
     }
 
     stage('SonarQ Test') {
-        // Ikkada 'env.BRANCH_NAME' vaadithe, SonarQube lo separate projects create avthayi
-        // Example: facebook-master, facebook-uat, facebook-dev
-        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.projectKey=facebook-${env.BRANCH_NAME} -Dsonar.projectName=Facebook-App-${env.BRANCH_NAME}"
+        // Ikkada key mariyu name rendu marustunnam
+        // Name lo space lu rakunda check chesko mama
+        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.projectKey=fb-${env.BRANCH_NAME} -Dsonar.projectName=Facebook-${env.BRANCH_NAME}"
     }
 
     stage('Deploy War Into Container'){
         sshagent(['a1e3132a-48ca-4722-bb22-ad3f22e2f7cc']) {
-            // Target file ni dynamic ga deploy chestundi
             sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-13-201-48-218.ap-south-1.compute.amazonaws.com:/opt/tomcat/webapps/amazon-app.war"
         }
     }
