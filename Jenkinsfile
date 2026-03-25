@@ -86,6 +86,36 @@
 
 
 
+// node {
+//     // Defines the path to the Maven installation
+//     def mavenHome = tool name: 'maven-3.8.2'
+    
+//     stage('Checkout Stage') {
+//         git credentialsId: '3cd41dc2-c48d-4843-a2f6-58661f5c2121', 
+//             url: 'https://github.com/bhargavM18/maven-web-application.git'
+//     }
+    
+//     stage('Build') {
+//         // Added the '$' before the curly braces
+//         sh "${mavenHome}/bin/mvn clean package"
+//     }
+//      stage('SonarQ Test') {
+//         // Added the '$' before the curly braces
+//         sh "${mavenHome}/bin/mvn clean package sonar:sonar"
+//     }
+//     stage('Deploy War Into Container'){
+//      sshagent(['a1e3132a-48ca-4722-bb22-ad3f22e2f7cc']) {
+//     sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-13-201-48-218.ap-south-1.compute.amazonaws.com:/opt/tomcat/webapps/amazon-app.war"
+
+//   }
+        
+//     }
+
+
+
+
+
+
 node {
     // Defines the path to the Maven installation
     def mavenHome = tool name: 'maven-3.8.2'
@@ -96,21 +126,23 @@ node {
     }
     
     stage('Build') {
-        // Added the '$' before the curly braces
         sh "${mavenHome}/bin/mvn clean package"
     }
-     stage('SonarQ Test') {
-        // Added the '$' before the curly braces
-        sh "${mavenHome}/bin/mvn clean package sonar:sonar"
-    }
-    stage('Deploy War Into Container'){
-     sshagent(['a1e3132a-48ca-4722-bb22-ad3f22e2f7cc']) {
-    sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-13-201-48-218.ap-south-1.compute.amazonaws.com:/opt/tomcat/webapps/amazon-app.war"
 
-  }
-        
+    stage('SonarQ Test') {
+        // Ikkada 'env.BRANCH_NAME' vaadithe, SonarQube lo separate projects create avthayi
+        // Example: facebook-master, facebook-uat, facebook-dev
+        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.projectKey=facebook-${env.BRANCH_NAME} -Dsonar.projectName=Facebook-App-${env.BRANCH_NAME}"
     }
-    
-    
-    
+
+    stage('Deploy War Into Container'){
+        sshagent(['a1e3132a-48ca-4722-bb22-ad3f22e2f7cc']) {
+            // Target file ni dynamic ga deploy chestundi
+            sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-13-201-48-218.ap-south-1.compute.amazonaws.com:/opt/tomcat/webapps/amazon-app.war"
+        }
+    }
 }
+    
+    
+    
+// }
