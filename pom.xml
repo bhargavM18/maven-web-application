@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.mt</groupId>
-	<artifactId>maven-web-application</artifactId>
+	<artifactId>facebook-web-app</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	
-	<name>maven-web-application</name>
+	<name>facebook-web-app</name>
 
 	<description>Maven Web Project for Java Project</description>
 
@@ -104,7 +104,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>maven-web-application</finalName>
+	
 		
 		<plugins>
 			<plugin>
@@ -137,7 +137,7 @@
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webApp>
-						<contextPath>/maven-web-application</contextPath>
+						<contextPath>/facebook-web-app</contextPath>
 					</webApp>
 				</configuration>
 			</plugin>
@@ -150,7 +150,7 @@
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
 					<wtpversion>2.0</wtpversion>
-					<wtpContextName>maven-web-application</wtpContextName>
+					<wtpContextName>facebook-web-app</wtpContextName>
 				</configuration>
 			</plugin>
 			
